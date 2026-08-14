@@ -15,90 +15,332 @@
     combos {
         compatible = "zmk,combos";
 
-        EscJK {
-            bindings = <&kp ESCAPE>;
+        Backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <7 8>;
+            require-prior-idle-ms = <150>;
+            timeout-ms = <50>;
+        };
+
+        underscore {
+            bindings = <&kp UNDER>;
+            key-positions = <18 30>;
+            require-prior-idle-ms = <150>;
+            timeout-ms = <50>;
+        };
+
+        caret {
+            bindings = <&kp CARET>;
+            key-positions = <6 18>;
+            require-prior-idle-ms = <150>;
+            timeout-ms = <50>;
+        };
+
+        plus {
+            bindings = <&kp PLUS>;
+            key-positions = <7 19>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        minus {
+            bindings = <&kp MINUS>;
+            key-positions = <19 31>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        asterik {
+            bindings = <&kp ASTERISK>;
+            key-positions = <20 8>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        slash {
+            bindings = <&kp SLASH>;
+            key-positions = <20 32>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        ampersand {
+            bindings = <&kp AMPERSAND>;
+            key-positions = <9 21>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        vbar {
+            bindings = <&kp PIPE>;
+            key-positions = <22 34>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        LParLT {
+            bindings = <&LParLT>;
             key-positions = <19 20>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        RParGT {
+            bindings = <&RParGT>;
+            key-positions = <20 21>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        LBrackets {
+            bindings = <&LBrackets>;
+            key-positions = <31 32>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        RBrackets {
+            bindings = <&RBrackets>;
+            key-positions = <33 32>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        Escape {
+            bindings = <&kp ESCAPE>;
+            key-positions = <8 9>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        Copy {
+            bindings = <&kp LC(C)>;
+            key-positions = <26 27>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        Paste {
+            bindings = <&kp LC(V)>;
+            key-positions = <27 28>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        Tab {
+            bindings = <&kp TAB>;
+            key-positions = <14 13>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        Cut {
+            bindings = <&kp LC(X)>;
+            key-positions = <28 26>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        at {
+            bindings = <&kp AT>;
+            key-positions = <2 14>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        tidal {
+            bindings = <&kp TILDE>;
+            key-positions = <29 17>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        percent {
+            bindings = <&kp PERCENT>;
+            key-positions = <17 5>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        dollar {
+            bindings = <&kp DOLLAR>;
+            key-positions = <4 16>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        equals {
+            bindings = <&kp EQUAL>;
+            key-positions = <16 28>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        hashtag {
+            bindings = <&kp POUND>;
+            key-positions = <3 15>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        backslash {
+            bindings = <&kp BACKSLASH>;
+            key-positions = <15 27>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
+        };
+
+        grave {
+            bindings = <&kp GRAVE>;
+            key-positions = <14 26>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <150>;
         };
     };
 
     behaviors {
-        TDcolons: TDcolons {
+        BetterWin: BetterWin {
             compatible = "zmk,behavior-tap-dance";
-            label = "TDCOLONS";
+            label = "BETTERWIN";
             #binding-cells = <0>;
-            bindings = <&kp SEMI>, <&kp COLON>;
+            bindings = <&sk LEFT_WIN>, <&kp LEFT_WIN>;
         };
 
-        TDComPer: TDComPer {
+        TDExplamQuest: TDExplamQuest {
             compatible = "zmk,behavior-tap-dance";
-            label = "TDCOMPER";
+            label = "TDEXPLAMQUEST";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp PERIOD>;
+            bindings = <&kp EXCL>, <&kp QUESTION>;
         };
 
-        TDLTGT: TDLTGT {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TDLTGT";
-            #binding-cells = <0>;
-            bindings = <&kp LT>, <&kp GT>;
+        HRLeft: HRLeft {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRLEFT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <39 40 41 30 18 6 7 19 31 32 20 8 9 10 11 21 22 23 33 34 35>;
+            hold-trigger-on-release;
         };
 
-        TDquotes: TDquotes {
+        HRRight: HRRight {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HRRIGHT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
+            hold-trigger-on-release;
+        };
+
+        LParLT: LParLT {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LPARLT";
+            bindings = <&kp LPAR>, <&kp LESS_THAN>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        RParGT: RParGT {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RPARGT";
+            bindings = <&kp RPAR>, <&kp GREATER_THAN>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        LBrackets: LBrackets {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LBRACKETS";
+            bindings = <&kp LEFT_BRACE>, <&kp LEFT_BRACKET>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        RBrackets: RBrackets {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RBRACKETS";
+            bindings = <&kp RIGHT_BRACE>, <&kp RIGHT_BRACKET>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        TDcommaSemiColon: TDcommaSemiColon {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TDCOMMASEMICOLON";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
+
+            tapping-term-ms = <400>;
+        };
+
+        TDPeriodColon: TDPeriodColon {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TDPERIODCOLON";
+            #binding-cells = <0>;
+            bindings = <&kp PERIOD>, <&kp COLON>;
+
+            tapping-term-ms = <400>;
+        };
+
+        TDQuestionExclam: TDQuestionExclam {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TDQUESTIONEXCLAM";
+            #binding-cells = <0>;
+            bindings = <&kp QUESTION>, <&kp EXCL>;
+
+            tapping-term-ms = <400>;
+        };
+
+        TDQuotes: TDQuotes {
             compatible = "zmk,behavior-tap-dance";
             label = "TDQUOTES";
             #binding-cells = <0>;
-            bindings = <&kp SINGLE_QUOTE>, <&kp DOUBLE_QUOTES>;
-        };
+            bindings = <&kp DOUBLE_QUOTES>, <&kp SINGLE_QUOTE>;
 
-        TDGraveTil: TDGraveTil {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TDGRAVETIL";
-            #binding-cells = <0>;
-            bindings = <&kp GRAVE>, <&kp TILDE>;
-        };
-
-        TDMinusUnd: TDMinusUnd {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TDMINUSUND";
-            #binding-cells = <0>;
-            bindings = <&kp MINUS>, <&kp UNDER>;
-        };
-
-        TDPlusEq: TDPlusEq {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TDPLUSEQ";
-            #binding-cells = <0>;
-            bindings = <&kp EQUAL>, <&kp PLUS>;
+            tapping-term-ms = <400>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        colemak_dh {
+        main {
             bindings = <
-&kp TAB        &kp Q  &kp W  &kp E         &kp R      &kp T    &kp Y  &kp U            &kp I      &kp O    &kp P      &kp ESCAPE
-&kp BACKSPACE  &kp A  &kp S  &kp D         &kp F      &kp G    &kp H  &kp J            &kp K      &kp L    &TDcolons  &kp ENTER
-&sk LCTRL      &kp Z  &kp X  &kp C         &kp V      &kp B    &kp N  &kp M            &TDComPer  &TDLTGT  &kp SLASH  &sk RIGHT_ALT
-                             &sk LEFT_WIN  &kp SPACE  &mo 1    &sl 1  &sk RIGHT_SHIFT  &sl 2
+&trans         &kp Q                &kp W               &kp E                 &kp R                   &kp T    &kp Y  &kp U             &kp I                  &kp O            &TDQuotes              &kp BACKSPACE
+&kp BACKSPACE  &HRLeft LEFT_META A  &HRLeft LEFT_ALT S  &HRLeft LEFT_SHIFT D  &HRLeft LEFT_CONTROL F  &kp G    &kp H  &HRRight RCTRL J  &HRRight LEFT_SHIFT K  &HRRight RALT L  &HRRight RIGHT_META P  &kp ENTER
+&trans         &kp Z                &kp X               &kp C                 &kp V                   &kp B    &kp N  &kp M             &TDcommaSemiColon      &TDPeriodColon   &TDQuestionExclam      &trans
+                                                        &kp LEFT_WIN          &kp SPACE               &mo 1    &sl 1  &sk RIGHT_SHIFT   &sl 2
             >;
         };
 
-        lower_layer {
+        nav {
             bindings = <
-&TDGraveTil  &kp EXCLAMATION  &kp AT_SIGN   &kp POUND     &kp DOLLAR        &kp PERCENT       &kp CARET        &kp AMPERSAND      &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
-&trans       &kp NUMBER_1     &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4      &kp NUMBER_5      &kp NUMBER_6     &kp NUMBER_7       &kp NUMBER_8  &kp NUMBER_9          &kp NUMBER_0           &trans
-&trans       &trans           &kp TILDE     &kp GRAVE     &kp LEFT_BRACKET  &kp LEFT_BRACE    &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &TDMinusUnd   &TDPlusEq             &trans                 &trans
-                                            &kp LEFT_WIN  &sk LEFT_SHIFT    &trans            &trans           &sk RIGHT_SHIFT    &trans
+&trans  &trans  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans    &kp PAGE_UP    &trans           &kp UP_ARROW    &trans     &trans  &trans
+&trans  &kp N0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans    &kp PAGE_DOWN  &kp LEFT         &kp DOWN_ARROW  &kp RIGHT  &trans  &trans
+&trans  &trans  &kp N7        &kp N8        &kp N9        &trans    &trans         &trans           &trans          &trans     &trans  &trans
+                              &kp LEFT_WIN  &trans        &trans    &trans         &sk RIGHT_SHIFT  &trans
             >;
         };
 
-        function_layer {
+        func {
             bindings = <
-&trans      &kp F6        &kp F7        &kp F8        &kp F9   &kp F10    &kp K_PREV      &kp K_VOLUME_DOWN  &kp C_VOLUME_UP  &kp K_NEXT  &kp K_MUTE  &trans
-&trans      &kp F1        &kp F2        &kp F3        &kp F4   &kp F5     &kp LEFT_ARROW  &kp DOWN           &kp UP_ARROW     &kp RIGHT   &trans      &trans
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &kp F11  &kp F12    &trans          &trans             &trans           &trans      &trans      &kp PRINTSCREEN
-                                        &trans        &trans   &trans     &trans          &trans             &trans
+&bt BT_CLR    &trans  &kp F4  &kp F5  &kp F6  &kp F10    &trans           &kp K_PREV  &kp C_VOLUME_UP  &kp K_NEXT  &trans  &trans
+&bt BT_SEL 0  &trans  &kp F1  &kp F2  &kp F3  &kp F11    &trans           &trans      &kp C_VOL_DN     &trans      &trans  &trans
+&bt BT_SEL 1  &trans  &kp F7  &kp F8  &kp F9  &kp F12    &kp PRINTSCREEN  &trans      &trans           &trans      &trans  &trans
+                              &trans  &trans  &trans     &trans           &trans      &trans
             >;
         };
     };
