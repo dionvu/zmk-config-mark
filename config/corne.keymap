@@ -25,15 +25,38 @@
         };
     };
 
+    behaviors {
+        TDcolons: TDcolons {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TDCOLONS";
+            #binding-cells = <0>;
+            bindings = <&kp SEMI>, <&kp COLON>;
+        };
+
+        TDComPer: TDComPer {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TDCOMPER";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp PERIOD>;
+        };
+
+        TDLTGT: TDLTGT {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TDLTGT";
+            #binding-cells = <0>;
+            bindings = <&kp LT>, <&kp GT>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         colemak_dh {
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E                     &kp R      &kp B    &kp J  &kp L            &kp U            &kp Y    &kp SINGLE_QUOTE  &kp DELETE
-&sk LALT   &kp A  &kp S  &kp D                     &kp T      &kp G    &kp M  &kp N            &kp E            &kp I    &kp O             &sk RIGHT_ALT
-&sk LSHFT  &kp Z  &kp X  &kp C                     &kp D      &kp V    &kp K  &kp H            &kp COMMA        &kp DOT  &kp FSLH          &sl 3
-                         &mt LEFT_WIN RIGHT_ARROW  &kp SPACE  &mo 1    &sl 1  &kp RIGHT_SHIFT  &sk RIGHT_SHIFT
+&kp TAB    &kp Q  &kp W  &kp E         &kp R      &kp T    &kp J  &kp L            &kp U       &kp Y    &kp SINGLE_QUOTE  &kp DELETE
+&sk LALT   &kp A  &kp S  &kp D         &kp F      &kp G    &kp H  &kp J            &kp K       &kp L    &TDcolons         &sk RIGHT_ALT
+&sk LSHFT  &kp Z  &kp X  &kp C         &kp V      &kp B    &kp K  &kp H            &TDComPer   &TDLTGT  &kp FSLH          &sl 3
+                         &sk LEFT_WIN  &kp SPACE  &mo 1    &sl 1  &sk RIGHT_SHIFT  &kp ESCAPE
             >;
         };
 
